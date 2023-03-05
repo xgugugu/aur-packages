@@ -16,12 +16,9 @@ jobs:
       - name: Setup
         uses: actions/setup-node@v3.6.0
       - name: Build
-        uses: DuckSoft/build-aur-action@v1.1
+        uses: xgugugu/build-aur-action@master
         with:
           repo-name: ${{ matrix.repos }}
-      - name: Update
-        run: |
-          repo-add ./*/xgugugu.db.tar.gz *.tar.zst
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with:
@@ -34,5 +31,5 @@ jobs:
         with:
           allowUpdates: true
           tag: "x86_64"
-          artifacts: "./*/xgugugu.db.tar.gz"
+          artifacts: "./xgugugu.db.tar.gz"
           token: ${{ secrets.ACCESS_TOKEN }}
