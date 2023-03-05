@@ -25,4 +25,4 @@ jobs:
           allowUpdates: true
           tag: "x86_64"
           artifacts: "./*/*.zst"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
