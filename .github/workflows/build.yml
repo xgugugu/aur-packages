@@ -16,7 +16,7 @@ jobs:
       - name: Setup
         uses: actions/setup-node@v3.6.0
       - name: Build
-        uses: DuckSoft/build-aur-action@1.1
+        uses: DuckSoft/build-aur-action@v1.1
         with:
           repo-name: ${{ matrix.repos }}
       - name: Upload
