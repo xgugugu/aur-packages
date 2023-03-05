@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  schedule:
+    - cron: "1 */8 * * *"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        repos: [icalingua++]
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup
+        uses: actions/setup-node@v3.6.0
+      - name: Build
+        uses: DuckSoft/build-aur-action@1.1
+        with:
+          repo-name: ${{ matrix.repos }}
+      - name: Upload
+        uses: LasyIsLazy/github-upload-action@v0.2.0
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          file-path: "./*/*.zst"
+          owner: xgugugu
+          repo: aur-packages
