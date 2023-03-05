@@ -24,12 +24,5 @@ jobs:
         with:
           allowUpdates: true
           tag: "x86_64"
-          artifacts: "./*/*.tar.zst"
+          artifacts: "./*/*.tar.zst,./xgugugu.db,./xgugugu.db.tar.gz"
           token: ${{ secrets.ACCESS_TOKEN }}
-      - name: Final
-        uses: ncipollo/release-action@v1.12.0
-        with:
-          allowUpdates: true
-          tag: "x86_64"
-          artifacts: "./xgugugu.db.tar.gz"
-          token: ${{ secrets.ACCESS_TOKEN }} 
