@@ -11,7 +11,7 @@ jobs:
       matrix:
         repos: [icalingua++, bilibili-bin, cpeditor, visual-studio-code-bin, python-gtts, dialect, netease-cloud-music-gtk4]
       fail-fast: false
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
       - name: Setup
         uses: actions/setup-node@v3.6.0
