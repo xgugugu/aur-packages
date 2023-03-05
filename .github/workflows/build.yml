@@ -26,7 +26,7 @@ jobs:
           tag: "x86_64"
           artifacts: "./*/*.tar.zst"
           token: ${{ secrets.ACCESS_TOKEN }}
-      - name: Final
+      - name: Update
         uses: ncipollo/release-action@v1.12.0
         with:
           allowUpdates: true
