@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        repos: [icalingua++, bilibili-bin, cpeditor, visual-studio-code-bin, python-gtts, dialect, netease-cloud-music-gtk4]
+        repos: [icalingua++, bilibili-bin, cpeditor, visual-studio-code-bin, netease-cloud-music-gtk4, watt-toolkit-bin, github-desktop-bin]
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
