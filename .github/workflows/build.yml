@@ -1,6 +1,6 @@
 name: Build
 
-on: 
+on:
   schedule:
     - cron: "1 */8 * * *"
   push:
@@ -20,9 +20,9 @@ jobs:
         with:
           repo-name: ${{ matrix.repos }}
       - name: Upload
-        uses: LasyIsLazy/github-upload-action@v0.2.0
+        uses: ncipollo/release-action@v1.12.0
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          file-path: "./*/*.zst"
-          owner: xgugugu
-          repo: aur-packages
+          allowUpdates: true
+          tag: "x86_64"
+          artifacts: "./*/*.zst"
+          token: ${{ secrets.GITHUB_TOKEN }}
