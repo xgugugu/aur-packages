@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Setup
         uses: actions/setup-node@v3.6.0
-      - name: Build
+      - name: Build 
         uses: xgugugu/build-aur-action@master
         with:
           repo-name: ${{ matrix.repos }}
