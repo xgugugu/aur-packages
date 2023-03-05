@@ -7,10 +7,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        repos: [icalingua++, bilibili-bin, cpeditor, visual-studio-code-bin, netease-cloud-music-gtk4, watt-toolkit-bin, github-desktop-bin]
-      fail-fast: false
     runs-on: ubuntu-latest 
     steps:
       - name: Setup
@@ -18,7 +14,7 @@ jobs:
       - name: Build 
         uses: xgugugu/build-aur-action@master
         with:
-          repo-name: ${{ matrix.repos }}
+          repo-name: "icalingua++ bilibili-bin cpeditor visual-studio-code-bin netease-cloud-music-gtk4 watt-toolkit-bin github-desktop-bin"
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with: 
