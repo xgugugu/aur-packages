@@ -32,4 +32,4 @@ jobs:
           allowUpdates: true
           tag: "x86_64"
           artifacts: "./xgugugu.db.tar.gz"
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }} 
