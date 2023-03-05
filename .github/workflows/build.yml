@@ -19,10 +19,20 @@ jobs:
         uses: DuckSoft/build-aur-action@v1.1
         with:
           repo-name: ${{ matrix.repos }}
+      - name: Update
+        run: |
+          repo-add ./*/xgugugu.db.tar.gz *.tar.zst
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with:
           allowUpdates: true
           tag: "x86_64"
-          artifacts: "./*/*.zst"
+          artifacts: "./*/*.tar.zst"
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Final
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          allowUpdates: true
+          tag: "x86_64"
+          artifacts: "./*/xgugugu.db.tar.gz"
           token: ${{ secrets.ACCESS_TOKEN }}
