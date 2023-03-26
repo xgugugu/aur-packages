@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Setup
         uses: actions/setup-node@v3.6.0
-      - name: Build 
+      - name: Build
         uses: xgugugu/build-aur-action@master
         with:
           repo-name: "vala-language-server hmcl-bin python-gtts dialect icalingua++ bilibili-bin cpeditor visual-studio-code-bin netease-cloud-music-gtk4 watt-toolkit-bin github-desktop-bin wemeet-bin google-chrome microsoft-edge-stable-bin linuxqq"
