@@ -14,7 +14,7 @@ jobs:
       - name: Build
         uses: xgugugu/build-aur-action@master
         with:
-          repo-name: "lunar-client sdl2pp videomass dwarfs-bin qbittorrent-enhanced-qt5 python-conda-package-handling python-conda authenticator qqmusic-electron vcpkg qqmusic-bin cpr xclicker quickjs vala-language-server hmcl-bin python-gtts dialect icalingua++ bilibili-bin cpeditor visual-studio-code-bin netease-cloud-music-gtk4 watt-toolkit-bin github-desktop-bin wemeet-bin google-chrome microsoft-edge-stable-bin linuxqq"
+          repo-name: "sdl2pp videomass dwarfs-bin qbittorrent-enhanced-qt5 python-conda-package-handling python-conda authenticator qqmusic-electron vcpkg qqmusic-bin cpr xclicker quickjs vala-language-server hmcl-bin python-gtts dialect icalingua++ bilibili-bin cpeditor visual-studio-code-bin netease-cloud-music-gtk4 watt-toolkit-bin github-desktop-bin wemeet-bin google-chrome microsoft-edge-stable-bin linuxqq"
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with: 
