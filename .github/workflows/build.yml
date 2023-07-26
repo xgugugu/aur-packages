@@ -2,7 +2,7 @@ name: Build
 
 on:
   schedule:
-    - cron: "1 */18 * * *"
+    - cron: "1 */36 * * *"
   push:
 
 jobs:
