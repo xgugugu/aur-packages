@@ -9,12 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest 
     steps:
-      - name: Setup 
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Init
         uses: actions/setup-node@v3.6.0
       - name: Build
         uses: ./build-aur-action
         with:
-          repo-name: "linuxqq"
+          repos: "linuxqq"
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with: 
