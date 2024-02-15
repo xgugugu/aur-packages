@@ -1,6 +1,6 @@
 #!/bin/bash
 
-useradd aurbuilder
+useradd -m -G wheel aurbuilder
 su -p aurbuilder
 
 build() {
