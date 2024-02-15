@@ -1,6 +1,6 @@
 #!/bin/bash
 
-useradd builder
+useradd -m -G wheel builder
 su -p builder
 
 build() {
