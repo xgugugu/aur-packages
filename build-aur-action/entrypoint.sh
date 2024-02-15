@@ -1,7 +1,7 @@
 #!/bin/bash
 
-useradd -m -G wheel builder
-su -p builder
+useradd aurbuilder
+su -p aurbuilder
 
 build() {
     HASH=$(git rev-parse --short HEAD)
