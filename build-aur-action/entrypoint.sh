@@ -1,5 +1,8 @@
 #!/bin/bash
 
+useradd builder
+su -p builder
+
 build() {
     HASH=$(git rev-parse --short HEAD)
     ID="$1@$HASH"
