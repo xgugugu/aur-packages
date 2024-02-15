@@ -19,7 +19,7 @@ cd dist && wget -O ./xgugugu.db.tar.gz https://github.com/xgugugu/aur-packages/r
 
 for REPO in $1; do
     git clone "https://aur.archlinux.org/$REPO.git"
-    cd "$REPO" && build "$REPO" && cd .. &
+    cd "$REPO" && build "$REPO" && cd ..
 done
 
 wait
