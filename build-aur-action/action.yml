@@ -1,0 +1,11 @@
+name: 'Build AUR Action'
+
+inputs:
+  repos:
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repos }}

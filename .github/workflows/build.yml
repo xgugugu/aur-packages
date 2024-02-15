@@ -1,9 +1,9 @@
-name: Build
+name: AUR
 
 on:
-  schedule:
-    - cron: "1 */12 * * *"
-  push:
+    schedule:
+      - cron: "1 */8 * * *"
+    push:
 
 jobs:
   build:
@@ -12,13 +12,13 @@ jobs:
       - name: Setup 
         uses: actions/setup-node@v3.6.0
       - name: Build
-        uses: xgugugu/build-aur-action@master
+        uses: ./build-aur-action
         with:
-          repo-name: "authenticator"
+          repo-name: "linuxqq"
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with: 
           allowUpdates: true
           tag: "x86_64"
-          artifacts: "./*/*.pkg.tar.zst,./xgugugu.db,./xgugugu.db.tar.gz"
+          artifacts: "./dist/*.*"
           token: ${{ secrets.ACCESS_TOKEN }}
