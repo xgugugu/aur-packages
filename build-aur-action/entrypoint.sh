@@ -6,10 +6,10 @@ build() {
     if grep -q "$ID" ../VERSION.txt; then
         echo "$ID" >>"../dist/VERSION.txt"
     else
-        makepkg -sf --noconfirm
-        pacman -U --noconfirm ./*.pkg.tar.zst
-        mv ./*.pkg.tar.zst "../dist/$1.pkg.tar.zst"
-        echo "$ID" >>"../dist/VERSION.txt"
+        makepkg -sf --noconfirm &&
+            pacman -U --noconfirm ./*.pkg.tar.zst &&
+            mv ./*.pkg.tar.zst "../dist/$1.pkg.tar.zst" &&
+            echo "$ID" >>"../dist/VERSION.txt"
     fi
 }
 
@@ -18,8 +18,8 @@ mkdir dist
 cd dist && wget -O ./xgugugu.db.tar.gz https://github.com/xgugugu/aur-packages/releases/download/x86_64/xgugugu.db.tar.gz && cd ..
 
 for REPO in $1; do
-    git clone "https://aur.archlinux.org/$REPO.git"
-    cd "$REPO" && build "$REPO" && cd ..
+    git clone "https://aur.archlinux.org/$REPO.git" &&
+        cd "$REPO" && build "$REPO" && cd ..
 done
 
 wait
