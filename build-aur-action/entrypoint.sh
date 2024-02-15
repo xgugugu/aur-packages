@@ -8,7 +8,7 @@ build() {
     if grep -q "$ID" ../VERSION; then
         echo "$ID" >>"../dist/VERSION"
     else
-        su aurbuilder -c makepkg -sf --noconfirm
+        su -c "makepkg -sf --noconfirm" aurbuilder
         pacman -U --noconfirm ./*.pkg.tar.zst
         mv ./*.pkg.tar.zst "../dist/$1.pkg.tar.zst"
         echo "$ID" >>"../dist/VERSION"
