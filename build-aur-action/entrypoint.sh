@@ -1,14 +1,12 @@
 #!/bin/bash
 
-useradd aurbuilder
-
 build() {
     HASH=$(git rev-parse --short HEAD)
     ID="$1@$HASH"
     if grep -q "$ID" ../VERSION; then
         echo "$ID" >>"../dist/VERSION"
     else
-        su -c "makepkg -sf --noconfirm" aurbuilder
+        makepkg -sf --noconfirm
         pacman -U --noconfirm ./*.pkg.tar.zst
         mv ./*.pkg.tar.zst "../dist/$1.pkg.tar.zst"
         echo "$ID" >>"../dist/VERSION"
