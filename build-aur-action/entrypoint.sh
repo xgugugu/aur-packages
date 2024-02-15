@@ -15,11 +15,11 @@ build() {
 
 wget -O ./VERSION.txt https://github.com/xgugugu/aur-packages/releases/download/x86_64/VERSION.txt
 mkdir dist
-cd dist && wget -O ./xgugugu.db.tar.gz https://github.com/xgugugu/aur-packages/releases/download/x86_64/xgugugu.db.tar.gz && cd ..
+(cd dist && wget -O ./xgugugu.db.tar.gz https://github.com/xgugugu/aur-packages/releases/download/x86_64/xgugugu.db.tar.gz)
 
 for REPO in $1; do
     git clone "https://aur.archlinux.org/$REPO.git" &&
-        cd "$REPO" && build "$REPO" && cd .. && rm -rf "$REPO"
+        (cd "$REPO" && build "$REPO") && rm -rf "$REPO"
 done
 
 wait
