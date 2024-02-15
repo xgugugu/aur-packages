@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Init
+      - name: Initialize
         uses: actions/setup-node@v3.6.0
       - name: Build
         uses: ./build-aur-action
