@@ -9,11 +9,15 @@ build() {
         makepkg -sf --noconfirm &&
             pacman -U --noconfirm ./*.pkg.tar.zst &&
             mv ./*.pkg.tar.zst "../dist/$1.pkg.tar.zst" &&
-            echo "$ID" >>"../dist/VERSION.txt"
+            echo "$ID" >>"../dist/VERSION.txt" &&
+            echo "Updated $REPO" >>"../LOGS.txt"
     fi
 }
 
 wget -O ./VERSION.txt https://github.com/xgugugu/aur-packages/releases/download/x86_64/VERSION.txt
+wget -O ./LOGS.txt https://github.com/xgugugu/aur-packages/releases/download/x86_64/LOGS.txt
+date +"Build %Y-%m-%d %H:%M:%S" >>"./LOGS.txt"
+
 mkdir dist
 (cd dist && wget -O ./xgugugu.db.tar.gz https://github.com/xgugugu/aur-packages/releases/download/x86_64/xgugugu.db.tar.gz)
 
@@ -22,6 +26,6 @@ for REPO in $1; do
         (cd "$REPO" && build "$REPO") && rm -rf "$REPO"
 done
 
-wait
+repo-add "./dist/xgugugu.db.tar.gz" ./dist/*.pkg.tar.zst || true
 
-repo-add "./dist/xgugugu.db.tar.gz" ./dist/*.pkg.tar.zst
+echo >>"./LOGS.txt"
