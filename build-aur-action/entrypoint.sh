@@ -4,13 +4,14 @@ build() {
     HASH=$(git rev-parse --short HEAD)
     ID="$1@$HASH"
     if grep -q "$ID" ../VERSION.txt; then
-        echo "$ID" >>"../dist/VERSION.txt"
+        echo "$ID" >>"../dist/VERSION.txt" &&
+            echo "Checked $REPO. Not updated. Current version: $HASH" >>"../LOGS.txt"
     else
         makepkg -sf --noconfirm &&
             pacman -U --noconfirm ./*.pkg.tar.zst &&
             mv ./*.pkg.tar.zst "../dist/$1.pkg.tar.zst" &&
             echo "$ID" >>"../dist/VERSION.txt" &&
-            echo "Updated $REPO" >>"../LOGS.txt"
+            echo "Checked $REPO. Updated. Current version: $HASH" >>"../LOGS.txt"
     fi
 }
 
