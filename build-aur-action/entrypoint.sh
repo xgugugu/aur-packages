@@ -4,8 +4,7 @@ build() {
     HASH=$(git rev-parse --short HEAD)
     ID="$1@$HASH"
     if grep -q "$ID" ../VERSION.txt; then
-        echo "$ID" >>"../dist/VERSION.txt" &&
-            echo "[Not Updated] Checked $REPO. Current version: $HASH" >>"../dist/LOGS.txt"
+        echo "$ID" >>"../dist/VERSION.txt"
     else
         makepkg -sf --noconfirm &&
             pacman -U --noconfirm ./*.pkg.tar.zst &&
@@ -19,11 +18,12 @@ build() {
 }
 
 wget -O ./VERSION.txt https://github.com/xgugugu/aur-packages/releases/download/x86_64/VERSION.txt
-wget -O ./dist/LOGS.txt https://github.com/xgugugu/aur-packages/releases/download/x86_64/LOGS.txt
-echo "Build $(date +"%Y-%m-%d %H:%M:%S")" >>"./dist/LOGS.txt"
 
 mkdir dist
 (cd dist && wget -O ./xgugugu.db.tar.gz https://github.com/xgugugu/aur-packages/releases/download/x86_64/xgugugu.db.tar.gz)
+
+wget -O ./dist/LOGS.txt https://github.com/xgugugu/aur-packages/releases/download/x86_64/LOGS.txt
+echo "Build $(date +"%Y-%m-%d %H:%M:%S")" >>"./dist/LOGS.txt"
 
 for REPO in $1; do
     git clone "https://aur.archlinux.org/$REPO.git" &&
