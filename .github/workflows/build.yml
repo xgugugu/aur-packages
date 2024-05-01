@@ -16,7 +16,7 @@ jobs:
       - name: Build
         uses: ./build-aur-action
         with:
-          repos: "linuxqq authenticator xclicker hmcl-bin python-gtts dialect icalingua++ cpeditor visual-studio-code-bin netease-cloud-music-gtk4 watt-toolkit-bin github-desktop-bin wemeet-bin google-chrome microsoft-edge-stable-bin bun-bin text-engine extension-manager zig-dev-bin uvw listen1 ttf-ms-fonts dwarfs-bin bindtointerface lact-libadwaita "
+          repos: "linuxqq authenticator xclicker python-gtts dialect icalingua++ cpeditor visual-studio-code-bin netease-cloud-music-gtk4 watt-toolkit-bin github-desktop-bin wemeet-bin google-chrome microsoft-edge-stable-bin bun-bin text-engine extension-manager zig-dev-bin uvw listen1 ttf-ms-fonts dwarfs-bin bindtointerface apostrophe plots"
       - name: Upload
         uses: ncipollo/release-action@v1.12.0
         with: 
