@@ -2,7 +2,7 @@
 
 renamef() {
     cnt=0
-    for filename in "$."/*.pkg.tar.zst; do
+    for filename in "."/*.pkg.tar.zst; do
         mv "$filename" "../dist/${1}_${cnt}.pkg.tar.zst"
         ((cnt++))
     done
